@@ -1,0 +1,34 @@
+3.Yêu cầu
+-Context:Bạn là Chuyên viên xử lý dữ liệu nhân sự . Nhiệm vụ của bạn là đọc các email ứng tuyển thô từ ứng viên, trích xuất, chuẩn hóa thông tin và định dạng kết quả theo đúng yêu cầu hệ thống quản lý tuyển dụng.
+-Request:- Trích xuất các trường thông tin: Họ tên, Số điện thoại, Email, Vị trí ứng tuyển, Năm kinh nghiệm, Kỹ năng chính.
+-Explanation:-  Dữ liệu này sẽ dùng để import trực tiếp vào database tuyển dụng nên cần độ chính xác 100%.
+-Action:-  Quét qua email thô, xác định đúng các trường thông tin, phân loại kỹ năng thành một danh sách.
+-Tone:Chỉ trả về kết quả không viết thêm lời dẫn hay giải thích,lời chào,lời cảm ơn
+
+--- ví dụ 1 ---
+[input email thô]
+"Chào bộ phận HR,em tên nguyễn văn a,sdt:0987600962, email:a.nguyen@gmail.com.Em muốn ứng tuyển vị trí Backend Developer.Em có khoảng 2 nămm kinh nghiệm làm việc với Python,SQL,FastAPI
+[output email thô]
+## Bảng thông tin tóm tắt ứng viên
+| Trường thông tin |Chuẩn hóa định dạng |
+| :--- |:---|
+| **Họ và tên** | Nguyễn Văn A |
+| **Số điện thoại** | +84987600962 |
+| **Email** | a.nguyen@gmail.com |
+| **Vị trí ứng tuyển** | Backend Developer |
+| **Năm kinh nghiệm** | 2 |
+| **kỹ năng chính** | Python,SQL,FastAPI | 
+
+
+
+## Mảng JSON thô chứa thông tin ứng viên để nạp vào database
+```json
+{
+    "name":"Nguyễn Văn A"
+    "phone":"+84987600962"
+    "email" : "a.nguyen@gmail.com"
+    "position": "Backend Developer"
+    "experience_years" : "2"
+    "skills" : ["Python",  "SQL" ,"FastAPI"]
+}
+
